@@ -4,6 +4,8 @@ Welcome to MD File Server! This guide will help you get up and running quickly.
 
 ## Installation
 
+### From npm
+
 Install globally with npm:
 
 ```bash
@@ -16,9 +18,25 @@ Or use locally in your project:
 npm install md-file-server
 ```
 
+### From GitHub
+
+Run directly from GitHub without cloning:
+
+```bash
+npx git+https://github.com/khareemnurulla/md-file-server.git
+```
+
+Or install from GitHub:
+
+```bash
+npm install git+https://github.com/khareemnurulla/md-file-server.git
+```
+
 ## Quick Start
 
 ### Command Line Usage
+
+#### If installed from npm:
 
 Start the server in the current directory:
 
@@ -30,6 +48,20 @@ Start with custom options:
 
 ```bash
 md-file-server docs --port 8080 --host 0.0.0.0
+```
+
+#### If using from GitHub:
+
+Run directly without installing:
+
+```bash
+npx git+https://github.com/khareemnurulla/md-file-server.git
+```
+
+Start with custom options:
+
+```bash
+npx git+https://github.com/khareemnurulla/md-file-server.git docs --port 8080 --host 0.0.0.0
 ```
 
 ### Programmatic Usage

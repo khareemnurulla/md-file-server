@@ -13,8 +13,24 @@ A simple HTTP server that serves Markdown files as HTML with live rendering and 
 
 ## Installation
 
+### From npm
+
 ```bash
 npm install md-file-server
+```
+
+### From GitHub
+
+Run directly from GitHub without cloning:
+
+```bash
+npx git+https://github.com/khareemnurulla/md-file-server.git
+```
+
+Or install from GitHub:
+
+```bash
+npm install git+https://github.com/khareemnurulla/md-file-server.git
 ```
 
 ## Usage
@@ -33,6 +49,16 @@ npx md-file-server -p 8080
 
 # Custom host
 npx md-file-server -h 0.0.0.0
+```
+
+If using from GitHub:
+
+```bash
+# Run directly without installing
+npx git+https://github.com/khareemnurulla/md-file-server.git
+
+# With options
+npx git+https://github.com/khareemnurulla/md-file-server.git ./docs -p 8080
 ```
 
 ### Programmatic Usage
@@ -84,7 +110,7 @@ Creates a new MD file server instance.
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/md-file-server.git
+git clone https://github.com/khareemnurulla/md-file-server.git
 cd md-file-server
 
 # Install dependencies
