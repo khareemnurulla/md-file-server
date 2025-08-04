@@ -1,0 +1,24 @@
+{
+  "name": "md-file-server",
+  "version": "1.0.0",
+  "description": "A simple HTTP server that serves Markdown files as HTML with live rendering and syntax highlighting.",
+  "main": "index.js",
+  "bin": {
+    "md-file-server": "./bin/md-file-server"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node bin/md-file-server",
+    "start": "node bin/md-file-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "commander": "^14.0.0",
+    "express": "^5.1.0",
+    "highlight.js": "^11.11.1",
+    "marked": "^16.1.1"
+  }
+}

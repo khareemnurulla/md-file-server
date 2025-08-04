@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+const { program } = require('commander');
+const { createServer } = require('../index');
+const path = require('path');
+
+program
+  .version('1.0.0')
+  .description('A simple HTTP server that serves Markdown files as HTML')
+  .argument('[directory]', 'Directory to serve', '.')
+  .option('-p, --port <number>', 'Port number', '3000')
+  .option('-h, --host <string>', 'Host address', 'localhost')
+  .option('-d, --directory <path>', 'Directory to serve')
+  .option('--theme <name>', 'Theme name', 'github')
+  .option('--no-live-reload', 'Disable live reload')
+  .action(async (directory, options) => {
+    const config = {
+      port: parseInt(options.port),
+      host: options.host,
+      directory: options.directory || directory,
+      theme: options.theme,
+      liveReload: options.liveReload
+    };
+
+    console.log('Starting MD File Server...');
+    console.log('Configuration:', {
+      ...config,
+      directory: path.resolve(config.directory)
+    });
+
+    const server = createServer(config);
+
+    process.on('SIGINT', async () => {
+      console.log('\nShutting down server...');
+      await server.stop();
+      process.exit(0);
+    });
+
+    process.on('SIGTERM', async () => {
+      console.log('\nShutting down server...');
+      await server.stop();
+      process.exit(0);
+    });
+
+    try {
+      await server.start();
+    } catch (error) {
+      console.error('Failed to start server:', error);
+      process.exit(1);
+    }
+  });
+
+program.parse();
